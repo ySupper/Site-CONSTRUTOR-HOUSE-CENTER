@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Detalhes do Produto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<body class="product-details-page">
+    <header class="custom-header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="../img/logo.jpg" height="500" width="150" alt="Construtor House Center" class="logo-img">
+                </a>
+            </div>
+            <div class="contact-info">
+                <span><i class="fas fa-circle"></i> Central de Atendimento: (11) 5926-4309</span>
+                <span><i class="fas fa-circle"></i> <a href="contato.html">Fale Conosco</a></span>
+            </div>
+            <div class="search-bar">
+                <form id="search-form" action="javascript:void(0);">
+                    <input type="text" id="search-input" placeholder="O que você procura?" aria-label="Buscar produtos">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <!-- Bottom Bar -->
+        <nav class="bottom-bar">
+            <ul>
+                <li id="produtos-dropdown" class="dropdown">
+                    <a href="#" class="dropbtn">Produtos</a>
+                    <div class="dropdown-content" id="produtos-menu">
+                        <a href="hidraulica.html">Hidráulica</a>
+                        <a href="eletrica.html">Elétrica</a>
+                        <a href="pesados.html">Materiais Pesados</a>
+                        <a href="ferramentas.html">Ferramentas</a>
+                    </div>
+                </li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="local.html">Onde Estamos</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="carrinho.html">Carrinho</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="produto">
+            <div class="galeria-imagens">
+                <img id="imagem-principal" src="placeholder.jpg" alt="Imagem Principal do Produto">
+                <div class="miniaturas">
+                    <!-- Miniaturas serão inseridas pelo JavaScript -->
+                </div>
+            </div>
+            <div class="detalhes-produto">
+                <h2 id="produto-nome">Nome do Produto</h2>
+                <p id="produto-preco">R$ 100.00</p>
+                <p id="produto-descricao">Descrição detalhada do produto...</p>
+                <button class="btn-adicionar-carrinho" onclick="adicionarAoCarrinho()">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+        <section class="avaliacoes">
+            <h3>Avaliações</h3>
+            <ul id="lista-avaliacoes">
+                <!-- As avaliações serão inseridas pelo JavaScript -->
+            </ul>
+            <form id="form-avaliacao" onsubmit="submitReview(event)">
+                <label for="avaliacao-nome">Nome:</label>
+                <input type="text" id="avaliacao-nome" name="nome" required>
+                <label for="avaliacao-comentario">Comentário:</label>
+                <textarea id="avaliacao-comentario" name="comentario" rows="4" required></textarea>
+                <button type="submit">Enviar Avaliação</button>
+            </form>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Construtor House Center</p>
+        <div class="redes-sociais">
+            <a href="#"><img src="../img/facebook.jpeg" alt="Facebook"></a>
+            <a href="#"><img src="../img/twitter.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com/construtorhouse/"><img src="../img/instagram.png" alt="Instagram"></a>
+        </div>
+    </footer>
+       <div id="notification" class="notification"></div> <!-- Elemento de notificação -->
+    <script src="../js/produtosferramentas.js"></script>
+</body>
+</html>

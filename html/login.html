@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login e Cadastro - Construtor House Center</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="custom-header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="../img/logo.jpg" height="500" width="150" alt="Construtor House Center" class="logo-img">
+                </a>
+            </div>
+            <div class="contact-info">
+                <span><i class="fas fa-circle"></i> Central de Atendimento: (11) 5926-4309</span>
+                <span><i class="fas fa-circle"></i> <a href="contato.html">Fale Conosco</a></span>
+            </div>
+            <div class="search-bar">
+                <form id="search-form" action="javascript:void(0);">
+                    <input type="text" id="search-input" placeholder="O que você procura?" aria-label="Buscar produtos">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <!-- Bottom Bar -->
+        <nav class="bottom-bar">
+            <ul>
+                <li id="produtos-dropdown" class="dropdown">
+                    <a href="#" class="dropbtn">Produtos</a>
+                    <div class="dropdown-content" id="produtos-menu">
+                        <a href="hidraulica.html">Hidráulica</a>
+                        <a href="eletrica.html">Elétrica</a>
+                        <a href="pesados.html">Materiais Pesados</a>
+                        <a href="ferramentas.html">Ferramentas</a>
+                    </div>
+                </li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="local.html">Onde Estamos</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="carrinho.html">Carrinho</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            <div class="auth-box">
+                <h2>Crie sua Conta</h2>
+                <form id="cadastroForm" onsubmit="validateCadastro(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-cadastro">Email:</label>
+                        <input type="email" id="email-cadastro" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha-cadastro">Senha:</label>
+                        <input type="password" id="senha-cadastro" name="senha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirma-senha">Confirme a Senha:</label>
+                        <input type="password" id="confirma-senha" name="confirma-senha" required>
+                    </div>
+                    <button type="submit" class="btn">Cadastrar</button>
+                </form>
+            </div>
+            <div class="auth-box">
+                <h2>Já tem Cadastro?</h2>
+                <form id="loginForm" onsubmit="validateLogin(event)">
+                    <div class="form-group">
+                        <label for="email-login">Email:</label>
+                        <input type="email" id="email-login" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha-login">Senha:</label>
+                        <input type="password" id="senha-login" name="senha" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Construtor House Center</p>
+        <div class="redes-sociais">
+            <a href="#"><img src="../img/facebook.jpeg" alt="Facebook"></a>
+            <a href="#"><img src="../img/twitter.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com/construtorhouse/"><img src="../img/instagram.png" alt="Instagram"></a>
+        </div>
+    </footer>
+
+    <script>
+        function validateCadastro(event) {
+            event.preventDefault();
+            const senha = document.getElementById('senha-cadastro').value;
+            const confirmaSenha = document.getElementById('confirma-senha').value;
+
+            if (senha !== confirmaSenha) {
+                alert('As senhas não coincidem. Por favor, tente novamente.');
+                return false;
+            }
+            alert('Cadastro realizado com sucesso!');
+            document.getElementById('cadastroForm').reset();
+        }
+
+        function validateLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email-login').value;
+            const senha = document.getElementById('senha-login').value;
+
+            if (email === "user@example.com" && senha === "password") {
+                alert('Login bem-sucedido!');
+            } else {
+                alert('Email ou senha incorretos. Por favor, tente novamente.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Detalhes do Produto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="product-details-page">
+    <header class="custom-header">
+        <div class="top-bar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="../img/logo.jpg" height="80" alt="Construtor House Center" class="logo-img">
+                </a>
+            </div>
+            <div class="contact-info">
+                <span>Central de Atendimento: (11) 5926-4309</span>
+                <span><a href="contato.html">Fale Conosco</a></span>
+            </div>
+        </div>
+        <nav class="bottom-bar">
+            <ul>
+                <li><a href="hidraulica.html">Hidráulica</a></li>
+                <li><a href="eletrica.html">Elétrica</a></li>
+                <li><a href="pesados.html">Materiais Pesados</a></li>
+                <li><a href="ferramentas.html">Ferramentas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="produto">
+            <div class="galeria-imagens">
+                <img id="imagem-principal" src="../img/ph.png" alt="Imagem Principal do Produto">
+                <div class="miniaturas"></div>
+            </div>
+            <div class="detalhes-produto">
+                <h2 id="produto-nome">Nome do Produto</h2>
+                <p id="produto-preco">R$ 100.00</p>
+                <p id="produto-descricao">Descrição detalhada do produto...</p>
+                <button class="btn-adicionar-carrinho" onclick="adicionarAoCarrinho()">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+        <section class="avaliacoes">
+            <h3>Avaliações</h3>
+            <ul id="lista-avaliacoes"></ul>
+            <form id="form-avaliacao" onsubmit="submitReview(event)">
+                <label for="avaliacao-nome">Nome:</label>
+                <input type="text" id="avaliacao-nome" required>
+                <label for="avaliacao-comentario">Comentário:</label>
+                <textarea id="avaliacao-comentario" rows="4" required></textarea>
+                <button type="submit">Enviar Avaliação</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Construtor House Center</p>
+    </footer>
+    <script src="../js/produtoseletrica.js"></script>
+</body>
+</html>
