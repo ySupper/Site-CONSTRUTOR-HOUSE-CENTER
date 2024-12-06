@@ -69,6 +69,21 @@
                 </p>
             </div>
         </section>
+        <section class="galeria">
+            <h3>Imagens da Nossa Loja</h3>
+            <div class="imagens">
+                <img src="../img/loja1.jpeg" alt="Imagem da Loja 1" class="imagem-galeria">
+                <img src="../img/loja2.jpeg" alt="Imagem da Loja 2" class="imagem-galeria">
+                <img src="../img/loja3.jpeg" alt="Imagem da Loja 3" class="imagem-galeria">
+            </div>
+        </section>
+
+        <!-- Lightbox para exibir as imagens ampliadas -->
+<div id="lightbox" class="lightbox">
+    <span class="close" onclick="fecharLightbox()">&times;</span>
+    <img class="lightbox-content" id="imagem-expandida" alt="Imagem Ampliada">
+</div>
+
     </main>
 
    <!-- FOOTER -->
@@ -80,4 +95,22 @@
         <a href="https://www.instagram.com/construtorhouse/"><img src="../img/instagram.png" alt="Instagram"></a>
     </div>
 </footer>
+
+<script>
+    document.querySelectorAll('.imagem-galeria').forEach((img) => {
+        img.addEventListener('click', function () {
+            const lightbox = document.getElementById('lightbox');
+            const imagemExpandida = document.getElementById('imagem-expandida');
+            imagemExpandida.src = this.src;
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    function fecharLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.style.display = 'none';
+    }
+</script>
+
 </body>
+

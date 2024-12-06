@@ -2,16 +2,17 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Construtor House Center - Sua loja de materiais para construção e reforma.">
+    <title>Construtor House Center</title>
     <link rel="stylesheet" href="../css/estilo.css">
-    <title>Seu Carrinho</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <body class="homepage">
+    <!-- HEADER -->
     <header class="custom-header">
         <!-- Top Bar -->
         <div class="top-bar">
@@ -52,108 +53,139 @@
             </ul>
         </nav>
     </header>
-    <section class="carrinho">
-        <h2>Seu Carrinho</h2>
-        <ul class="lista-produtos"></ul>
-        <div class="total"><strong>Total:</strong> R$ <span id="total-carrinho">0.00</span></div>
 
-        <!-- Botão de Remover Tudo -->
-        <button class="btn-remover-tudo" aria-label="Remover todos os itens do carrinho">Remover Tudo</button>
-
-        <!-- Seção de Forma de Pagamento -->
-        <div class="pagamento">
-            <h3>Forma de Pagamento</h3>
-            <label class="radio-container">
-                <input type="radio" name="payment-method" value="credit-card" checked>
-                <span class="checkmark"></span>
-                Cartão de Crédito
-            </label>
-            <label class="radio-container">
-                <input type="radio" name="payment-method" value="paypal">
-                <span class="checkmark"></span>
-                PayPal
-            </label>
-            <label class="radio-container">
-                <input type="radio" name="payment-method" value="pix">
-                <span class="checkmark"></span>
-                PIX
-            </label>
+    <!-- Barra de Progresso -->
+    <div class="progress-bar">
+        <div class="step completed">
+            <div class="icon">✔</div>
+            <span>Carrinho</span>
         </div>
+        <div class="step active">
+            <div class="icon">2</div>
+            <span>Identificação</span>
+        </div>
+        <div class="step">
+            <div class="icon">3</div>
+            <span>Pagamento</span>
+        </div>
+        <div class="step">
+            <div class="icon">4</div>
+            <span>Sucesso</span>
+        </div>
+    </div>
 
-        <!-- Seção de Endereço de Entrega -->
-        <div class="endereco">
-            <h3>Endereço de Entrega</h3>
-            <div class="form-group">
+    <!-- Etapas do Carrinho -->
+    <div class="carrinho-etapas">
+        <!-- Etapa 1: Carrinho -->
+        <section id="etapa-sacola" class="etapa ativa">
+            <h2>Seu Carrinho</h2>
+            <ul class="lista-produtos"></ul>
+            <div class="total"><strong>Total:</strong> R$ <span id="total-carrinho">0.00</span></div>
+            <button class="btn-proximo" onclick="avancarEtapa()">Continuar</button>
+        </section>
+
+        <!-- Etapa 2: Identificação -->
+        <section id="etapa-identificacao" class="etapa escondida">
+            <h2>Identificação</h2>
+            <form>
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" required placeholder="Digite seu nome completo">
+                <span class="error-message" id="error-nome"></span>
+        
+                <label for="documento">Documento (CPF ou RG):</label>
+                <input type="text" id="documento" required placeholder="Digite seu CPF ou RG">
+                <span class="error-message" id="error-documento"></span>
+            </form>
+            <button class="btn-voltar" onclick="voltarEtapa()">Voltar</button>
+            <button class="btn-proximo" onclick="avancarEtapa()">Continuar</button>
+        </section>
+        
+        <!-- Etapa 3: Pagamento -->
+        <section id="etapa-pagamento" class="etapa escondida">
+            <h2>Pagamento e Entrega</h2>
+        
+            <!-- Endereço de Entrega -->
+            <div class="endereco">
+                <h3>Endereço de Entrega</h3>
                 <label for="rua">Rua:</label>
-                <input type="text" id="rua" name="rua" required>
+                <input type="text" id="rua" required placeholder="Digite a rua">
                 <span class="error-message" id="error-rua"></span>
-            </div>
-            <div class="form-group">
+        
                 <label for="numero">Número:</label>
-                <input type="text" id="numero" name="numero" required>
+                <input type="text" id="numero" required placeholder="Digite o número">
                 <span class="error-message" id="error-numero"></span>
-            </div>
-            <div class="form-group">
+        
                 <label for="bairro">Bairro:</label>
-                <input type="text" id="bairro" name="bairro" required>
+                <input type="text" id="bairro" required placeholder="Digite o bairro">
                 <span class="error-message" id="error-bairro"></span>
-            </div>
-            <div class="form-group">
+        
                 <label for="cidade">Cidade:</label>
-                <input type="text" id="cidade" name="cidade" required>
+                <input type="text" id="cidade" required placeholder="Digite a cidade">
                 <span class="error-message" id="error-cidade"></span>
-            </div>
-            <div class="form-group">
+        
                 <label for="estado">Estado:</label>
-                <input type="text" id="estado" name="estado" required>
+                <input type="text" id="estado" required placeholder="Digite o estado">
                 <span class="error-message" id="error-estado"></span>
-            </div>
-            <div class="form-group">
+        
                 <label for="cep">CEP:</label>
-                <input type="text" id="cep" name="cep" required>
+                <input type="text" id="cep" required placeholder="Digite o CEP">
                 <span class="error-message" id="error-cep"></span>
             </div>
-        </div>
-
-        <!-- Seção de Dados do Cartão (escondida por padrão) -->
-        <div class="cartao" id="cartao-section" style="display: none;">
-            <h3>Dados do Cartão</h3>
-            <div class="form-group">
+        
+            <!-- Forma de Pagamento -->
+            <div class="pagamento">
+                <h3>Forma de Pagamento</h3>
+                <label class="radio-container">
+                    <input type="radio" name="payment-method" value="credit-card" required>
+                    <span class="checkmark"></span>
+                    Cartão de Crédito
+                </label>
+                <label class="radio-container">
+                    <input type="radio" name="payment-method" value="paypal" required>
+                    <span class="checkmark"></span>
+                    PayPal
+                </label>
+                <label class="radio-container">
+                    <input type="radio" name="payment-method" value="pix" required>
+                    <span class="checkmark"></span>
+                    PIX
+                </label>
+            </div>
+        
+            <!-- Detalhes do Cartão -->
+            <div id="cartao-section" style="display: none;">
+                <h3>Dados do Cartão</h3>
                 <label for="nome-cartao">Nome no Cartão:</label>
-                <input type="text" id="nome-cartao" name="nome-cartao">
-                <span class="error-message" id="error-nome-cartao"></span>
-            </div>
-            <div class="form-group">
+                <input type="text" id="nome-cartao" placeholder="Digite o nome do cartão">
+                
                 <label for="numero-cartao">Número do Cartão:</label>
-                <input type="text" id="numero-cartao" name="numero-cartao">
-                <span class="error-message" id="error-numero-cartao"></span>
-            </div>
-            <div class="form-group">
+                <input type="text" id="numero-cartao" placeholder="Digite o número do cartão">
+        
                 <label for="validade-cartao">Validade:</label>
-                <input type="text" id="validade-cartao" name="validade-cartao" placeholder="MM/AA">
-                <span class="error-message" id="error-validade-cartao"></span>
-            </div>
-            <div class="form-group">
+                <input type="text" id="validade-cartao" placeholder="MM/AA">
+        
                 <label for="cvv-cartao">CVV:</label>
-                <input type="text" id="cvv-cartao" name="cvv-cartao">
-                <span class="error-message" id="error-cvv-cartao"></span>
+                <input type="text" id="cvv-cartao" placeholder="Código de segurança">
             </div>
-        </div>
 
-        <div class="mensagem-compra" id="mensagem-compra" style="display: none;"></div> <!-- Elemento para a mensagem -->
+            <!-- Botões -->
+            <button class="btn-voltar" onclick="voltarEtapa()">Voltar</button>
+            <button class="btn-finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+        </section>
 
-        <button class="btn-voltar" aria-label="Voltar à página inicial">Página Inicial</button>
-        <button class="btn-finalizar" aria-label="Finalizar compra">Finalizar Compra</button>
-    </section>
-        <!-- FOOTER -->
-        <footer>
-            <p>&copy; 2024 Construtor House Center</p>
-            <div class="redes-sociais">
-                <a href="#"><img src="../img/facebook.jpeg" alt="Facebook"></a>
-                <a href="#"><img src="../img/twitter.png" alt="Twitter"></a>
-                <a href="https://www.instagram.com/construtorhouse/"><img src="../img/instagram.png" alt="Instagram"></a>
-            </div>
-        </footer>
+         <!-- Etapa 4: Sucesso -->
+        <section id="etapa-sucesso" class="etapa escondida">
+            <h2>Compra Concluída</h2>
+            <div id="mensagem-sucesso" style="display: none; text-align: center; margin: 20px; color: white;"></div>
+            <button onclick="window.location.href='index.html'">Voltar à Página Inicial</button>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Construtor House Center</p>
+    </footer>
+
     <script src="../js/carrinho.js"></script>
 </body>
 </html>
